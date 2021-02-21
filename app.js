@@ -30,7 +30,7 @@ function chooseCity() {
 }
 
 
-const helper = require('./helper')
+// const helper = require('./helper')
 function suggestSights(city) {
     const sight = helper.sights(city)
     return sight;
