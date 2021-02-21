@@ -3,14 +3,14 @@ const request = require('request');
 
 // const city = 'berlin';
 
-function weather(city) {
+async function weather(city) {
     const API_KEY = 'API_KEY';
     request.get(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${API_KEY}`, (error, response, body) => {
         if (error) {
             return console.dir(error);
         }
         let temp = [];
-        const result = JSON.parse(body);
+        const result = await JSON.parse(body);
         result.data.forEach(element => {
             temp.push(element.temp);
         }); return [Math.min.apply(Math, temp), Math.max.apply(Math, temp)]
