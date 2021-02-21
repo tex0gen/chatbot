@@ -44,7 +44,7 @@ function responseCity() {
 
 function checkCity(city) {
     if (city.match(new RegExp(cities.join("|"), "gi"))) {
-        return suggestSights(city);
+        return cityWeather(city);
     } else if (city.match(new RegExp(wiseCrack.join("|"), "gi"))) {
         console.log("hahaha, you got me there, even I know that's not a real city, do you want to choose a 'real' city this time?");
         return askCityAgain();
