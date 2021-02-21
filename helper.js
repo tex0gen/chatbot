@@ -3,9 +3,9 @@ const request = require('request');
 
 // const city = 'berlin';
 
-async function weather(city) {
-    const API_KEY = 'API_KEY';
-    request.get(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${API_KEY}`, (error, response, body) => {
+function weather(city) {
+    const API_KEY = '6ea464bc96b04edba178d3ce13dd2096';
+    request.get(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${API_KEY}`, async (error, response, body) => {
         if (error) {
             return console.dir(error);
         }
@@ -13,14 +13,17 @@ async function weather(city) {
         const result = await JSON.parse(body);
         result.data.forEach(element => {
             temp.push(element.temp);
-        }); return [Math.min.apply(Math, temp), Math.max.apply(Math, temp)]
+        }); console.log([Math.min.apply(Math, temp), Math.max.apply(Math, temp)]); return [Math.min.apply(Math, temp), Math.max.apply(Math, temp)]
         // return weather_call(temp);
     });
 }
 
-function weather_call(temp) {
-    return [lowTemp, highTemp];
-}
+// function weather_call(temp) {
+//     const sortTemp = temp.sort((a, b) => a - b)
+//     const lowTemp = sortTemp[0]
+//     const highTemp = sortTemp[temp.length - 1]
+//     return [lowTemp, highTemp];
+// }
 
 // weather('berlin')
 
@@ -40,8 +43,8 @@ function latlong(city){
 
 function sights(city) {
     const amadeus = new Amadeus({
-        clientId: 'clientId',
-        clientSecret: 'clientSecret'
+        clientId: 'UqtGKVHB5YreEbE9w2isT2xBMQjuxpLT',
+        clientSecret: 'PXf0zGVSfzcHCxD6'
     });
     // Returns activities for the given location based on geolocation coordinates
     const [lat, long]  = latlong(city)
@@ -66,8 +69,8 @@ function sights_call(data) {
 
 function interests(city) {
     const amadeus = new Amadeus({
-        clientId: 'clientId',
-        clientSecret: 'clientSecret'
+        clientId: 'UqtGKVHB5YreEbE9w2isT2xBMQjuxpLT',
+        clientSecret: 'PXf0zGVSfzcHCxD6'
     });
 
     // What are the popular places in the given location (based on a geo location and a radius)
