@@ -31,8 +31,8 @@ function chooseCity() {
 
 
 // const helper = require('./helper')
-function suggestSights(city) {
-    const sight = helper.sights(city)
+async function suggestSights(city) {
+    const sight = await helper.sights(city)
     return sight;
 }
 
@@ -54,11 +54,11 @@ function checkCity(city) {
     }
 }
 
-function cityWeather(city) {
+async function cityWeather(city) {
     // console.log(helper.weather(city))
-    const {temp, lowTemp, highTemp} = helper.weather(city)
-    console.log(temp, lowTemp, highTemp)
-    return temp;
+    const [low, high] = await helper.weather(city)
+    console.log(low, high)
+    return [low, high];
 
 }
 
