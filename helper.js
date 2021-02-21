@@ -4,7 +4,7 @@ const request = require('request');
 // const city = 'berlin';
 
 function weather(city) {
-    const API_KEY = '6ea464bc96b04edba178d3ce13dd2096';
+    const API_KEY = 'API_KEY';
     request.get(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${API_KEY}`, async (error, response, body) => {
         if (error) {
             return console.dir(error);
@@ -43,8 +43,8 @@ function latlong(city){
 
 function sights(city) {
     const amadeus = new Amadeus({
-        clientId: 'UqtGKVHB5YreEbE9w2isT2xBMQjuxpLT',
-        clientSecret: 'PXf0zGVSfzcHCxD6'
+        clientId: 'CLIENTID',
+        clientSecret: 'CLIENTSECRET'
     });
     // Returns activities for the given location based on geolocation coordinates
     const [lat, long]  = latlong(city)
@@ -69,8 +69,8 @@ function sights_call(data) {
 
 function interests(city) {
     const amadeus = new Amadeus({
-        clientId: 'UqtGKVHB5YreEbE9w2isT2xBMQjuxpLT',
-        clientSecret: 'PXf0zGVSfzcHCxD6'
+        clientId: 'CLIENTID',
+        clientSecret: 'CLIENTSECRET'
     });
 
     // What are the popular places in the given location (based on a geo location and a radius)
